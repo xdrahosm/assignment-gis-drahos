@@ -1,0 +1,67 @@
+<!--
+    TO DO:
+    add custom layers to map for all data sources based on scenarios
+    create user interface for all scenarios and add function calls for them
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Display a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <script src='script.js' ></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="styles.css" rel="stylesheet"/>
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+    
+</head>
+<body>
+   
+<div id='map'></div>
+<pre id='features'></pre>
+
+<div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+    <!--    
+        <div>
+            <input type="checkbox" id="scales" name="scales" checked>
+            <label for="scales">Monuments</label>
+        </div>
+        <div>
+            <input type="checkbox" id="scales" name="scales" checked>
+            <label for="scales">Memorials</label>
+        </div>
+        <div>    
+            <input type="checkbox" id="scales" name="scales" checked>
+            <label for="scales">Archeological</label>
+        </div>
+        <div>
+            <input type="checkbox" id="scales" name="scales" checked>
+            <label for="scales">Ruins</label>
+        </div>
+    -->
+        <button onclick="getHotels('Point')">hotels</button>
+        <button onclick="getArea('Area')">points of interest</button>
+
+    </div>
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoieGRyYWhvcyIsImEiOiJjam95NGRveDEyN3owM3FwYWJ4Z25hbDN3In0.Ctxav26tiggWnmhWxTJXJA';
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/xdrahos/cjp60gr6b25xc2ss0xnlur5x4', // stylesheet location
+        center: [-0.118, 51.509], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+    
+prepareMap();
+</script>
+</body>
+</html>

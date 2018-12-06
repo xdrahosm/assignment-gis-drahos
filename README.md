@@ -14,7 +14,7 @@ Build a map-based application, which lets the user see geo-based data on a map a
 
 Fill in (either in English, or in Slovak):
 
-**Name: Marek Drahos
+**Name: Marek Drahos  
 **Application description**: Aplikácia zobrazujúca hotely v Londýne. po vybatí konkrétneho hotela zobrazí 10 najbližších zaujímacých bodov v okolí. Taktiež pnoúka zobrazenie oblastí Londýna, ktoré sú farebne odlíšené na základe poètu zloèinov, ktoré sa v nich stali.
 
 **Data source**: Open Street Maps, https://data.police.uk/data/

@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fe9db89-2f8f-4037-bb32-36bb542c3daf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/backend/classes/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/backend/classes/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/backend/classes/ElementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/backend/classes/ElementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vava.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="9fe9db89-2f8f-4037-bb32-36bb542c3daf" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +13,7 @@
     <session id="-2115123490">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.4" value="1" />
@@ -94,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/backend/classes/ElementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1688">
+            <state relative-caret-position="1229">
               <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
               <folding>
                 <element signature="e#5145#5146#0" expanded="true" />
@@ -116,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+            <state relative-caret-position="-117">
+              <caret line="15" column="57" lean-forward="true" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -178,7 +169,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="68" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -248,7 +239,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544061868736" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544061987076" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -326,16 +317,15 @@
       <updated>1543968054644</updated>
       <workItem from="1543968059596" duration="729000" />
       <workItem from="1543990906657" duration="453000" />
-      <workItem from="1544049711757" duration="10550000" />
+      <workItem from="1544049711757" duration="11344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11732000" />
+    <option name="totallyTimeSpent" value="12526000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -348,7 +338,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997833" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -420,21 +410,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/backend/classes/ElementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1688">
+        <state relative-caret-position="1229">
           <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
           <folding>
             <element signature="e#5145#5146#0" expanded="true" />
             <element signature="e#5221#5222#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="15" column="57" lean-forward="true" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
         </state>
       </provider>
     </entry>

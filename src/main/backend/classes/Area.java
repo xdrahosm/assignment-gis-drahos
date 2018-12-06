@@ -4,9 +4,9 @@ public class Area {
 
     private String name;
     private String geoData;
-    private long crimeCount;
+    private int crimeCount;
 
-    public Area(String name, String geoData, long crimeCount) {
+    public Area(String name, String geoData, int crimeCount) {
         this.name = name;
         this.geoData = geoData;
         this.crimeCount = crimeCount;
@@ -28,11 +28,11 @@ public class Area {
         this.geoData = geoData;
     }
 
-    public long getCrimeCount() {
+    public int getCrimeCount() {
         return crimeCount;
     }
 
-    public void setCrimeCount(Integer crimeCount) {
+    public void setCrimeCount(int crimeCount) {
         this.crimeCount = crimeCount;
     }
 }

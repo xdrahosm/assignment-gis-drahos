@@ -25,11 +25,11 @@
 <body>
    
 <div id='map'></div>
-<pre id='features'></pre>
+<pre id='features' ></pre>
 
 <div class='map-overlay top'>
     <div class='map-overlay-inner'>
-    <!--    
+    <!--
         <div>
             <input type="checkbox" id="scales" name="scales" checked>
             <label for="scales">Monuments</label>
@@ -38,7 +38,7 @@
             <input type="checkbox" id="scales" name="scales" checked>
             <label for="scales">Memorials</label>
         </div>
-        <div>    
+        <div>
             <input type="checkbox" id="scales" name="scales" checked>
             <label for="scales">Archeological</label>
         </div>
@@ -47,8 +47,8 @@
             <label for="scales">Ruins</label>
         </div>
     -->
-        <button onclick="getHotels('Point')">hotels</button>
-        <button onclick="getArea('Area')">points of interest</button>
+        <button onclick="getHotels('Point')">Show all hotels</button>
+        <button onclick="getArea('Area')">Show crime map</button>
 
     </div>
 </div>
@@ -60,7 +60,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieGRyYWhvcyIsImEiOiJjam95NGRveDEyN3owM3FwYWJ4Z
         center: [-0.118, 51.509], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
-    
 prepareMap();
 </script>
 </body>

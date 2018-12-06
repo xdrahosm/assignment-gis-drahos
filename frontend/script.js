@@ -6,21 +6,16 @@
 
 function getHotels(sourceId){
     //this function will call backend api for hotel spawn
-    if (source=map.getSource(sourceId)){
-        source.setData("http://localhost:8080/hotel")
-    }
-    else{
-        map.addSource(sourceId, {
-            type: 'geojson',
-            data: 'http://localhost:8080/hotel'
-        });
-    }
+    source.setData("http://localhost:8080/hotel")
+    map.setLayoutProperty('Area','visibility','none');
+    map.setLayoutProperty(sourceId,'visibility','visible');
+
 }
 
-function getPoints(sourceId,x,y){
+function getPoints(sourceId,x,y,name){
     //this function will call backend api for hotel spawn
     if (source=map.getSource(sourceId)){
-        source.setData("http://localhost:8080/point?long="+x+"&lat="+y)
+        source.setData("http://localhost:8080/point?long="+x+"&lat="+y+"&name="+name)
     }
     else{
         map.addSource(sourceId, {
@@ -35,6 +30,7 @@ function getArea(sourceId){
     if (source=map.getSource(sourceId)){
         source.setData("http://localhost:8080/area");
         map.setLayoutProperty('Point','visibility','none');
+        map.setLayoutProperty(sourceId,'visibility','visible');
     }
     else{
         map.addSource(sourceId, {
@@ -58,10 +54,20 @@ function prepareMap(){
                 }
             },
             "layout":{
+
             },
             'paint': {
-                'fill-color': '#000fff',
-                'fill-opacity': 0.5,
+               'fill-color': [
+                   'match',
+                ['get', 'color'],
+                    '1', '#ff4c05',
+                    '2', '#ff7818',
+                    '3', '#ffd30b',
+                    '4', '#fffa08',
+                    '5', '#ffffff',
+                    /* other */ '#ff0000'],
+
+        'fill-opacity': 0.5,
                 'fill-outline-color':'#000',
                 
             }
@@ -87,16 +93,20 @@ function prepareMap(){
     });
 
     map.on('click', function (e) {
+        $('#features').html("");
         var features = map.queryRenderedFeatures(e.point);
         for (i=0;i<features.length;i++){
-            if(features[i].layer.id=='Point' && features[i].geometry.type=='Point' && features[i].properties.historic!=null){
-                $('#features').html(features[i].properties.title+" "+features[i].properties.historic);
-            }else if(features[i].layer.id=='Point' && features[i].geometry.type=='Point'){
-                
-                getPoints('Point',features[0].geometry.coordinates[0],features[0].geometry.coordinates[1]);
-                points=map.getSource('Point');
-                console.log(points);
-
+            if(features[i].properties.type=='hotel' && features[i].layer.id=='Point' ){
+                getPoints('Point',features[i].geometry.coordinates[0],features[i].geometry.coordinates[1],features[i].properties.title);
+                $('#features').html("<h1>"+features[i].properties.title+"</h1>");
+                break;
+            }else if(features[i].properties.type=='point' && features[i].layer.id=='Point'){
+                $('#features').html("<h1>"+features[i].properties.title+"</h1>");
+                break;
+            }else if (features[i].layer.id=='Area'){
+                $('#features').html("<h1>"+features[i].properties.title+"</h1><br>" +
+                    "<p>Total crime count: "+features[i].properties.crimeCount+"</p>");
+                break;
             }
         }
     });

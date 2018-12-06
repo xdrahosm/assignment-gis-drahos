@@ -5,7 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
+import static java.lang.Math.toIntExact;
+
 
 @RestController
 public class ElementController {
@@ -40,7 +44,7 @@ public class ElementController {
         return jdbcTemplate.query(
                 "select name , ST_AsGeoJSON(ST_Transform(geom,4326)::geometry) as geo, crime_count from planet_osm_polygon " +
                         "where boundary='administrative' and name is not null and name!='London' and name!='Greater London'",
-                (rs, rowNum) -> new Area(rs.getString("name"), rs.getString("geo"), rs.getLong("crime_count")));
+                (rs, rowNum) -> new Area(rs.getString("name"), rs.getString("geo"), rs.getInt("crime_count")));
     }
 
     public List<CrimeTypeCount> getCrimeTypeCount(String area){
@@ -69,7 +73,7 @@ public class ElementController {
             sb.append(hotel.getGeoData());
             sb.append(",\"properties\": {\"title\":\"");
             sb.append(hotel.getName());
-            sb.append("\",\"icon\":\"lodging-15");
+            sb.append("\",\"icon\":\"lodging-15\",\"type\":\"hotel");
             sb.append("\"}},");
         }
 
@@ -82,7 +86,7 @@ public class ElementController {
 
     @CrossOrigin("*")
     @RequestMapping(value="/point",method= RequestMethod.GET)
-    public String pointOfInterestApi(@RequestParam("long") double longitude, @RequestParam("lat") double latitude){
+    public String pointOfInterestApi(@RequestParam("long") double longitude, @RequestParam("lat") double latitude, @RequestParam("name") String name){
         //public String pointOfInterestApi(){
 
          List<PointOfInterest> points=getPointsOfInterest(longitude,latitude);
@@ -92,6 +96,11 @@ public class ElementController {
         sb.append("{\"type\":\"FeatureCollection\",");
         sb.append("\"features\": [");
 
+        sb.append(" {\"type\": \"Feature\",\"geometry\":{\"type\": \"Point\","+
+                "\"coordinates\": ["+ Double.toString(longitude)+", "+Double.toString(latitude)+"]},"+
+                "\"properties\": {\"icon\":\"lodging-15\",\"type\":\"hotel\",\"title\":\""+name+"\"}},");
+
+
         for(PointOfInterest point : points){
             sb.append(" {\"type\": \"Feature\",\"geometry\":");
             sb.append(point.getGeoData());
@@ -99,7 +108,7 @@ public class ElementController {
             sb.append(point.getName());
             sb.append("\",\"historic\":\"");
             sb.append(point.getType());
-            sb.append("\",\"icon\":\"monument-15");
+            sb.append("\",\"icon\":\"monument-15\",\"type\":\"point");
             sb.append("\",\"distance\":\"");
             sb.append(point.getDistance());
             sb.append("\"}},");
@@ -123,19 +132,30 @@ public class ElementController {
         sb.append("{\"type\":\"FeatureCollection\",");
         sb.append("\"features\": [");
 
+        areas.sort(new Comparator<Area>() {
+            @Override
+            public int compare(Area o1, Area o2) {
+                return o2.getCrimeCount()-o1.getCrimeCount();
+            }
+        });
+
+        int i=0,j=1;
         for(Area area : areas){
+            System.out.println(Integer.toString(area.getCrimeCount())+" "+Integer.toString(j));
             sb.append(" {\"type\": \"Feature\",\"geometry\":");
             sb.append(area.getGeoData());
             sb.append(",\"properties\": {\"title\":\"");
             sb.append(area.getName());
-            sb.append("\",\"color\":\"#555555");
-            //sb.append(area.getCrimeCount());
+            sb.append("\",\"color\":\""+ Integer.toString(j));
+            sb.append("\",\"crimeCount\":\""+Integer.toString(area.getCrimeCount()));
             sb.append("\"}},");
+            i++;
+            if(i>=areas.size()/5) {j++;i=0;}
+
         }
 
         sb.deleteCharAt(sb.length()-1);
         sb.append("]}");
-
         return sb.toString();
 
     }
@@ -143,7 +163,6 @@ public class ElementController {
     @CrossOrigin("*")
     @RequestMapping(value="/area_detail",method= RequestMethod.GET)
     public String areaDetailApi(@RequestParam("name") String name){
-        System.out.println(name);
         StringBuilder sb = new StringBuilder();
         List<CrimeTypeCount> crimes=getCrimeTypeCount(name);
         sb.append("{");
